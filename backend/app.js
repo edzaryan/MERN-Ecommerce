@@ -7,6 +7,7 @@ const router = require("./routes");
 
 const app = express();
 
+
 // Middleware setup
 app.use(cors({
     origin: process.env.FRONTEND_URL,

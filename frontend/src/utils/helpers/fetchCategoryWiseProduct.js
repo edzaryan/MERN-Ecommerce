@@ -14,8 +14,6 @@ const fetchCategoryWiseProduct = async category => {
 
     const dataResponse = await response.json();
 
-    console.log(SummaryApi.categoryWiseProduct.url);
-
     return dataResponse;
 }
 
