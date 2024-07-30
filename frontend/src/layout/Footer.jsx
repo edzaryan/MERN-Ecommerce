@@ -9,6 +9,7 @@ import {
   Logo
 } from "../utils/imports";
 
+
 const Footer = () => {
 
   const handleLogoClick = () => {
@@ -97,9 +98,7 @@ const Footer = () => {
             <Link to="terms" className="hover:underline">Terms of Use</Link>
             <Link to="help" className="hover:underline">Help</Link>
           </div>
-          <div className="grid justify-center text-sm pb-2">
-            Copyright © 2009-2024 Amit Inc. All Rights Reserved.
-          </div>
+          <div className="grid justify-center text-sm pb-2">Copyright © 2009-2024 Amit Inc. All Rights Reserved.</div>
         </div>
       </div>
   );

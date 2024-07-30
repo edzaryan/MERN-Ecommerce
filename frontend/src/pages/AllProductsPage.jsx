@@ -1,9 +1,10 @@
 import {
     useEffect,
     useState,
-    UploadProduct,
+    AdminUploadProduct,
     SummaryApi,
-    AdminProductCard
+    AdminProductCard,
+    Button
 } from "../utils/imports";
 
 
@@ -30,17 +31,21 @@ const AllProductsPage = () => {
     }
 
     return (
-        <div>
+        <div className="grid gap-3">
             <div className="bg-white py-2 px-4 flex justify-between items-center">
                 <h2 className="font-bold text-lg">All Products</h2>
-                <button
+                <Button
                     onClick={() => setOpenUploadProduct(true)}
-                    className="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition-all py-1 px-3 rounded-full">
+                    variant="danger"
+                    size="md"
+                    shape="rounded"
+                    outline
+                >
                     Add Product
-                </button>
+                </Button>
             </div>
             <div className="h-[calc(100vh-190px)] overflow-y-scroll">
-                <div className="flex items-start flex-wrap gap-5 py-4">
+                <div className="flex items-start flex-wrap gap-5">
                     {
                         allProducts?.map((product, index) => (
                             <AdminProductCard
@@ -54,7 +59,7 @@ const AllProductsPage = () => {
             </div>
             {
                 openUploadProduct && (
-                    <UploadProduct
+                    <AdminUploadProduct
                         onClose={() => setOpenUploadProduct(false)}
                         fetchData={fetchAllProduct}
                     />

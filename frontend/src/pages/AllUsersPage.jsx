@@ -40,32 +40,35 @@ const AllUsersPage = () => {
     }
   };
 
-
   return (
-    <div className="bg-white">
-      <table className="w-full userTable">
-        <thead>
+    <div className="grid gap-3">
+      <div className="bg-white py-2 px-4 flex justify-start items-center">
+        <h2 className="font-bold text-lg">All Users</h2>
+      </div>
+      <div className="bg-white">
+        <table className="w-full userTable">
+          <thead>
           <tr className="bg-black text-white">
-            <th>Sr.</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Created Date</th>
-            <th>Action</th>
+            <th className="p-2">Sr.</th>
+            <th className="p-2">Name</th>
+            <th className="p-2">Email</th>
+            <th className="p-2">Role</th>
+            <th className="p-2">Created Date</th>
+            <th className="p-2">Action</th>
           </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
           {
             allUsers.map((user, index) => (
                 <tr key={user._id}>
-                  <td>{index + 1}</td>
-                  <td>{user?.name}</td>
-                  <td>{user?.email}</td>
-                  <td>{user?.role}</td>
-                  <td>{moment(user?.createdAt).format("LL")}</td>
-                  <td>
+                  <td className="p-2">{index + 1}</td>
+                  <td className="p-2">{user?.name}</td>
+                  <td className="p-2">{user?.email}</td>
+                  <td className="p-2">{user?.role}</td>
+                  <td className="p-2">{moment(user?.createdAt).format("LL")}</td>
+                  <td className="p-2">
                     <button
-                        className="bg-green-100 p-2 rounded-full cursor-pointer hover:bg-green-500 hover:text-white"
+                        className="bg-red-600 p-2 rounded-full cursor-pointer hover:bg-red-700 text-white"
                         onClick={() => {
                           setUpdateUserDetails(user);
                           setOpenUpdateRole(true);
@@ -76,17 +79,18 @@ const AllUsersPage = () => {
                 </tr>
             ))
           }
-        </tbody>
-      </table>
-      {
-        openUpdateRole && (
-          <ChangeUserRole
-              {...updateUserDetails}
-              onClose={() => setOpenUpdateRole(false)}
-              callFunc={fetchAllUsers}
-          />
-        )
-      }  
+          </tbody>
+        </table>
+        {
+            openUpdateRole && (
+                <ChangeUserRole
+                    {...updateUserDetails}
+                    onClose={() => setOpenUpdateRole(false)}
+                    callFunc={fetchAllUsers}
+                />
+            )
+        }
+      </div>
     </div>
   );
 };

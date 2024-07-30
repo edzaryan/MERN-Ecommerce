@@ -8,7 +8,7 @@ import {
     useNavigate,
     SummaryApi,
     toast,
-    Context
+    Context, Button
 } from "../utils/imports";
 
 
@@ -94,7 +94,9 @@ const LoginPage = () => {
                     </div>
                     <Link to="/forgot-password" className="block w-fit ml-auto hover:underline hover:text-red-600 mt-2">Forgot password?</Link>
                 </div>
-                <button className="bg-red-600 hover:bg-red-700 text-white py-2 w-full max-w-[150px] rounded-full mx-auto my-5">Login</button>
+                <div className="grid justify-center p-5">
+                    <Button size="lg" shape="rounded" variant="danger">Login</Button>
+                </div>
                 <div>Don't have an account? <Link to="/signup" className="text-red-600 hover:text-red-700 hover:underline">Sign up</Link></div>
             </form>
         </div>

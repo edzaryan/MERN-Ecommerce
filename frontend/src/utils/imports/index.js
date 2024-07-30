@@ -32,6 +32,11 @@ import {
     FaStarHalf
 } from 'react-icons/fa';
 
+
+import styled, { css } from 'styled-components';
+
+
+
 import { FaRegCircleUser, FaXTwitter } from 'react-icons/fa6';
 import { IoSearch } from "react-icons/io5";
 import { CgClose } from "react-icons/cg";
@@ -69,12 +74,12 @@ import SliderButton from "../../components/SliderButton";
 import DisplayImage from "../../components/DisplayImage";
 import AdminEditProduct from "../../components/AdminEditProduct";
 import AdminProductCard from "../../components/AdminProductCard";
-import UploadProduct from "../../components/UploadProduct";
+import AdminUploadProduct from "../../components/AdminUploadProduct";
 import ChangeUserRole from "../../components/ChangeUserRole";
 import VerticalCard from "../../components/VerticalCard";
 import CategoryList from "../../components/CategoryList";
 import BannerProduct from "../../components/BannerProduct";
-import ProductSliderSmall from "../../components/ProductSliderSmall";
+import ProductSliderSmall from "../../components/HorizontalCardProduct";
 import VerticalProductCard from "../../components/VerticalProductCard";
 import CategoryWiseProductDisplay from "../../components/CategoryWiseProductDisplay";
 import Header from "../../layout/Header";
@@ -114,6 +119,8 @@ import { ToastContainer } from "react-toastify";
 
 
 export {
+    styled,
+    css,
     App,
     HomePage,
     LoginPage,
@@ -200,7 +207,7 @@ export {
     IoMdEyeOff,
     Outlet,
     AdminProductCard,
-    UploadProduct,
+    AdminUploadProduct,
     moment,
     MdModeEdit,
     ChangeUserRole,

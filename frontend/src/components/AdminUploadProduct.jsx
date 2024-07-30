@@ -11,7 +11,7 @@ import {
 } from "../utils/imports";
 
 
-const UploadProduct = ({ onClose, fetchData }) => {
+const AdminUploadProduct = ({ onClose, fetchData }) => {
     const [openFullScreenImage, setOpenFullScreenImage] = useState(false);
     const [fullScreenImage, setFullScreenImage] = useState("");
     const [data, setData] = useState({
@@ -68,16 +68,21 @@ const UploadProduct = ({ onClose, fetchData }) => {
     }
 
     return (
-        <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-slate-200 bg-opacity-35">
-            <div className="bg-white rounded w-full max-w-2xl max-h-[80%] overflow-hidden">
-                <div className="flex justify-between items-center p-4">
+        <div
+            onClick={onClose}
+            className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-slate-200 bg-opacity-35 z-50">
+            <div
+                className="bg-white p-4 rounded w-full max-w-2xl h-full max-h-[80%] overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+            >
+                <div className="flex justify-between items-center pb-3">
                     <h2 className="font-bold text-lg">Upload Product</h2>
                     <div className="w-fit ml-auto text-2xl hover:text-red-600 cursor-pointer" onClick={onClose}>
                         <CgClose />
                     </div>
                 </div>
 
-                <form className="grid p-4 gap-4 overflow-y-auto" onSubmit={handleSubmit}>
+                <form className="grid p-4 gap-4 overflow-y-auto h-full pb-5" onSubmit={handleSubmit}>
                     <label htmlFor="productName">Product Name</label>
                     <input
                         type="text"
@@ -118,7 +123,6 @@ const UploadProduct = ({ onClose, fetchData }) => {
                             </option>
                         ))}
                     </select>
-
                     <label htmlFor="productImage">Product Image</label>
                     <div className="flex items-center gap-2">
                         <label htmlFor="uploadImageInput" className="relative">
@@ -126,12 +130,7 @@ const UploadProduct = ({ onClose, fetchData }) => {
                                 <div className="text-slate-500 flex flex-col items-center gap-2">
                                     <span className="text-4xl"><FaCloudUploadAlt /></span>
                                     <p className="text-sm">Upload Product Image</p>
-                                    <input
-                                        type="file"
-                                        id="uploadImageInput"
-                                        className="hidden"
-                                        onChange={handleUploadProduct}
-                                    />
+                                    <input type="file" id="uploadImageInput" className="hidden" onChange={handleUploadProduct} />
                                 </div>
                             </div>
                         </label>
@@ -209,4 +208,4 @@ const UploadProduct = ({ onClose, fetchData }) => {
     );
 };
 
-export default UploadProduct;
+export default AdminUploadProduct;

@@ -8,7 +8,7 @@ import {
     SummaryApi,
     imageToBase64,
     toast,
-    CiCamera
+    CiCamera, Button
 } from "../utils/imports";
 
 
@@ -144,7 +144,9 @@ export const SignUpPage = () => {
                         <div className="cursor-pointer text-xl" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEye /> : <IoMdEyeOff />}</div>
                     </div>
                 </div>
-                <button className="bg-red-600 hover:bg-red-700 text-white py-2 w-full max-w-[150px] rounded-full mx-auto my-5">Sign Up</button>
+                <div className="grid justify-center p-5">
+                    <Button size="lg" shape="rounded" variant="danger">Sign Up</Button>
+                </div>
                 <div>Already have an account? <Link to="/login" className="text-red-600 hover:text-red-700 hover:underline">Login</Link></div>
             </form>
         </div>

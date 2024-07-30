@@ -3,7 +3,7 @@ import {
     IoMdClose,
     SummaryApi,
     toast,
-    role as allRoles
+    role as allRoles, Button
 } from "../utils/imports";
 
 
@@ -34,32 +34,26 @@ export const ChangeUserRole = ({ userId, name, email, role, onClose, callFunc })
         }
     };
 
-
     return (
-        <div
-            onClick={onClose}
-            className="fixed top-0 bottom-0 left-0 right-0 w-full h-full z-10 flex justify-center items-center bg-slate-200 bg-opacity-50">
+        <div onClick={onClose} className="fixed inset-2 w-full h-full z-10 grid justify-center items-center bg-slate-200 bg-opacity-50">
             <div
                 onClick={e => e.stopPropagation()}
-                className="mx-auto bg-white shadow-md p-4 w-full max-w-sm">
+                className="w-[500px] bg-white shadow-md p-6 max-w-sm">
                 <button className="block ml-auto" onClick={onClose}>
                     <IoMdClose />
                 </button>
                 <div className="pb-4 text-lg font-medium">Change User Role</div>
-                <div>Name: {name}</div>
-                <div>Email: {email}</div>
-                <div className="flex items-center justify-between my-4">
+                <div className="pb-2">Name: {name}</div>
+                <div className="pb-2">Email: {email}</div>
+                <div className="flex items-center justify-between pb-5">
                     <div>Role</div>
-                    <select className="border px-4 py-1" value={userRole} onChange={(e) => setUserRole(e.target.value)}>
-                        {Object.values(allRoles).map(el =>
-                            <option key={el} value={el}>{el}</option>)}
+                    <select className="border px-3 py-1" value={userRole} onChange={(e) => setUserRole(e.target.value)}>
+                        {Object.values(allRoles).map(el => <option key={el} value={el}>{el}</option>)}
                     </select>
                 </div>
-                <button
-                    className="w-fit mx-auto block py-1 px-3 rounded-full bg-red-600 text-white hover:bg-red-700"
-                    onClick={updateUserRole}>
-                    Change Role
-                </button>
+                <div className="grid justify-center">
+                    <Button variant="danger" shape="rounded" size="md" onClick={updateUserRole}>Change Role</Button>
+                </div>
             </div>
         </div>
     );

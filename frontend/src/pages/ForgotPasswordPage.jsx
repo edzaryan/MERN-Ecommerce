@@ -4,7 +4,10 @@ import {
     SummaryApi,
     toast,
     resetPasswordIcons,
-    lock, useNavigate
+    lock,
+    useNavigate,
+    FaEye,
+    IoMdEyeOff, Button
 } from "../utils/imports";
 
 
@@ -14,6 +17,7 @@ const ForgotPasswordPage = () => {
     const [code, setCode] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -136,7 +140,9 @@ const ForgotPasswordPage = () => {
                             />
                         </div>
                     </div>
-                    <button className="bg-red-600 hover:bg-red-700 text-white py-2 w-full max-w-[150px] rounded-full mx-auto my-5">Send</button>
+                    <div className="grid justify-center p-5">
+                        <Button size="lg" shape="rounded" variant="danger">Send</Button>
+                    </div>
                     <div>Don't have an account? <Link to="/signup" className="text-red-600 hover:text-red-700 hover:underline">Sign up</Link></div>
                 </form>
             )}
@@ -167,7 +173,9 @@ const ForgotPasswordPage = () => {
                             />
                         </div>
                     </div>
-                    <button className="bg-red-600 hover:bg-red-700 text-white py-2 w-full max-w-[150px] rounded-full mx-auto my-5">Submit</button>
+                    <div className="grid justify-center p-5">
+                        <Button size="lg" shape="rounded" variant="danger">Submit</Button>
+                    </div>
                 </form>
             )}
             {step === 3 && (
@@ -184,9 +192,9 @@ const ForgotPasswordPage = () => {
                     </div>
                     <div className="grid">
                         <label htmlFor="newPassword">New Password</label>
-                        <div className="bg-slate-100 mt-1 p-2 rounded-sm">
+                        <div className="bg-slate-100 mt-1 p-2 flex rounded-sm">
                             <input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 name="newPassword"
                                 id="newPassword"
                                 required
@@ -195,13 +203,14 @@ const ForgotPasswordPage = () => {
                                 placeholder="Enter new password"
                                 className="w-full h-full outline-none bg-transparent"
                             />
+                            <div className="cursor-pointer text-xl" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEye /> : <IoMdEyeOff />}</div>
                         </div>
                     </div>
                     <div className="grid">
                         <label htmlFor="confirmPassword">Confirm New Password</label>
-                        <div className="bg-slate-100 mt-1 p-2 rounded-sm">
+                        <div className="bg-slate-100 mt-1 p-2 flex rounded-sm">
                             <input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 name="confirmPassword"
                                 id="confirmPassword"
                                 required
@@ -210,9 +219,12 @@ const ForgotPasswordPage = () => {
                                 placeholder="Confirm new password"
                                 className="w-full h-full outline-none bg-transparent"
                             />
+                            <div className="cursor-pointer text-xl" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEye /> : <IoMdEyeOff />}</div>
                         </div>
                     </div>
-                    <button className="bg-red-600 hover:bg-red-700 text-white py-2 w-full max-w-[150px] rounded-full mx-auto my-5">Reset Password</button>
+                    <div className="grid justify-center p-5">
+                        <Button size="lg" shape="rounded" variant="danger">Reset Password</Button>
+                    </div>
                 </form>
             )}
             {step === 4 && (

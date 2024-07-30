@@ -76,11 +76,11 @@ const Header = () => {
                                     <div className="cursor-pointer" onClick={() => setMenuDisplay(prev => !prev)}>
                                         {user?.profilePicture ? (
                                             <div
-                                                className="w-[46px] h-[46px] rounded-full bg-cover bg-center bg-no-repeat"
+                                                className="w-[40px] h-[40px] rounded-full bg-cover bg-center bg-no-repeat"
                                                 style={{backgroundImage: `url(${user?.profilePicture })`}}>
                                             </div>
                                         ) : (
-                                            <FaRegCircleUser />
+                                            <FaRegCircleUser size={40} />
                                         )}
                                     </div>
                                     {menuDisplay && user?.role === role.ADMIN && (
@@ -104,7 +104,7 @@ const Header = () => {
                             </>
                         )}
                         {user?._id
-                            ? <Button onClick={handleLogout} danger>Logout</Button>
+                            ? <Button onClick={handleLogout} size="md" shape="rounded" variant="danger">Logout</Button>
                             : <NavLink to="/login" variant="danger">Login</NavLink>
                         }
                     </div>
